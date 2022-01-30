@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<section>
+    <h1> Static String </h1>
+</section>
+<section>
+    <h1> Dynamic String </h1>
+    <p> Name: <span th:text="${name}">... Some value ... </span> </p>
+    <p> Surname: <span th:text="${surname}">... Some value ... </span> </p>
+</section>
+<section>
+    <h1> Object </h1>
+    <p> Name: <span th:text="${person.name}">... Some value ... </span> </p>
+    <p> Surname: <span th:text="${person.surname}">... Some value ... </span> </p>
+    <p> Age: <span th:text="${person.age}">... Some value ... </span> </p>
+</section>
+<section>
+    <h1>List of Objects</h1>
+    <div th:each="person : ${persons}">
+        <p> Name: <span th:text="${person.name}">... Some value ... </span> </p>
+        <p> Surname: <span th:text="${person.surname}">... Some value ... </span> </p>
+        <p> Age: <span th:text="${person.age}">... Some value ... </span> </p>
+        <hr/>
+    </div>
+</section>
+</body>
+</html>
