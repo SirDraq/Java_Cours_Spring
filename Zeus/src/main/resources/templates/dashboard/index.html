@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <ul class="list-group">
+                <li th:each="item: ${menu}" class="list-group-item">
+                    <a href="#link" th:text="${item.name}">...</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-8">
+            <div class="jumbotron">
+                <h3 class="display-4" th:text="${article.title}">...</h3>
+                <p th:text="${article.text}">...</p>
+                <ul>
+                    <li th:each="comment: ${article.comments}" class="list-group-item">
+                        <span th:text="${comment.text}"></span>
+                        <strong th:text="${comment.author}"></strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

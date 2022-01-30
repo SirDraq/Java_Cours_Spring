@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zeus News</title>
+</head>
+<body>
+
+<section>
+    <h1>News</h1>
+    <div th:each="item : ${news}">
+        <span th:text="${item}"></span>
+        <hr/>
+    </div>
+</section>
+
+</body>
+</html>
