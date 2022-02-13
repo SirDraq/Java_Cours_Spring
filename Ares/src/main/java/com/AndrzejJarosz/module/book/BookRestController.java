@@ -1,5 +1,10 @@
 package com.AndrzejJarosz.module.book;
 
+import com.AndrzejJarosz.module.book.dto.BookDto;
+import com.AndrzejJarosz.module.book.dto.BookForm;
+import com.AndrzejJarosz.module.book.entity.BookEntity;
+import com.AndrzejJarosz.module.book.mapper.BookMapper;
+import com.AndrzejJarosz.module.book.repository.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,16 +24,16 @@ public class BookRestController {
 	private BooksRepository booksRepository;
 
 	@GetMapping("/api/book")
-	public List<BookEntity> getBooks() {
-		return booksRepository.findAll();
+	public List<BookDto> getBooks() {
+		return BookMapper.map(
+				booksRepository.findAll()
+		);
 	}
 
 	@GetMapping(value = "/api/book/{id}")
 	public BookDto getBook(@PathVariable Long id) {
-		BookEntity book = booksRepository.findById(id).get();
-		return new BookDto(
-				book.getAuthor(),
-				book.getTitle()
+		return BookMapper.map(
+				booksRepository.findById(id).get()
 		);
 	}
 

@@ -1,10 +1,10 @@
-package com.AndrzejJarosz.module.book;
+package com.AndrzejJarosz.module.book.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "book_detail")
-public class BookDetailEntity {
+@Table(name = "book_details")
+public class BookDetailsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,7 +16,7 @@ public class BookDetailEntity {
         return id;
     }
 
-    public BookDetailEntity setId(Long id) {
+    public BookDetailsEntity setId(Long id) {
         this.id = id;
         return this;
     }
@@ -25,7 +25,7 @@ public class BookDetailEntity {
         return isbn;
     }
 
-    public BookDetailEntity setIsbn(String isbn) {
+    public BookDetailsEntity setIsbn(String isbn) {
         this.isbn = isbn;
         return this;
     }
@@ -34,7 +34,7 @@ public class BookDetailEntity {
         return lang;
     }
 
-    public BookDetailEntity setLang(String lang) {
+    public BookDetailsEntity setLang(String lang) {
         this.lang = lang;
         return this;
     }
@@ -43,7 +43,7 @@ public class BookDetailEntity {
         return publisher;
     }
 
-    public BookDetailEntity setPublisher(String publisher) {
+    public BookDetailsEntity setPublisher(String publisher) {
         this.publisher = publisher;
         return this;
     }

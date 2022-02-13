@@ -1,4 +1,4 @@
-package com.AndrzejJarosz.module.book;
+package com.AndrzejJarosz.module.book.dto;
 
 import javax.validation.constraints.NotNull;
 
