@@ -2,14 +2,12 @@ package com.AndrzejJarosz.core.module.book.mapper;
 
 import com.AndrzejJarosz.core.module.book.dto.BookDto;
 import com.AndrzejJarosz.core.module.book.entity.BookEntity;
-import com.AndrzejJarosz.core.module.book.dto.BookDetailsDto;
-import com.AndrzejJarosz.core.module.book.entity.BookTagEntity;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class BookMapper extends BookDetailsMapper{
     public static BookDto map(BookEntity book) {
+
         return new BookDto(
                 book.getAuthor(),
                 book.getTitle(),

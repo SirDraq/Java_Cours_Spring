@@ -2,9 +2,6 @@ package com.AndrzejJarosz.core.module.book;
 
 import com.AndrzejJarosz.core.module.book.dto.BookDto;
 import com.AndrzejJarosz.core.module.book.dto.BookForm;
-import com.AndrzejJarosz.core.module.book.entity.BookEntity;
-import com.AndrzejJarosz.core.module.book.mapper.BookMapper;
-import com.AndrzejJarosz.core.module.book.repository.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,44 +16,32 @@ import java.util.List;
 
 @RestController
 public class BookRestController {
-
 	@Autowired
-	private BooksRepository booksRepository;
+	private BookService bookService;
 
 	@GetMapping("/api/book")
 	public List<BookDto> getBooks() {
-		return BookMapper.map(
-				booksRepository.findAll()
-		);
+		return bookService.all();
 	}
 
 	@GetMapping(value = "/api/book/{id}")
 	public BookDto getBook(@PathVariable Long id) {
-		return BookMapper.map(
-				booksRepository.findById(id).get()
-		);
+		return bookService.one(id);
 	}
 
 	@PostMapping("/api/book")
-	public BookEntity newBooks(@RequestBody @Valid BookForm form) {
-		BookEntity entity = new BookEntity()
-				.setAuthor(form.getAuthor())
-				.setTitle(form.getTitle());
-		return booksRepository.saveAndFlush(entity);
+	public BookDto newBooks(@RequestBody @Valid BookForm form) {
+		return bookService.create(form);
 	}
 
 	@PutMapping("/api/book/{id}")
-	public BookEntity updateBooks(@PathVariable Long id, @RequestBody BookForm form) {
-		BookEntity bookFromDb = booksRepository.findById(id).get();
-		bookFromDb.setTitle(form.getTitle());
-		bookFromDb.setAuthor(form.getAuthor());
-		booksRepository.saveAndFlush(bookFromDb);
-		return bookFromDb;
+	public BookDto updateBooks(@PathVariable Long id, @RequestBody BookForm form) {
+		return bookService.update(id,form);
 	}
 
 	@DeleteMapping("/api/book/{id}")
 	public void deleteBooks(@PathVariable Long id) {
-		booksRepository.deleteById(id);
+		bookService.delete(id);
 	}
 
 }

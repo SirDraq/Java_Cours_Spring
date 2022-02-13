@@ -31,6 +31,9 @@ public class BookEntity {
 	}
 
 	public BookDetailsEntity getDetails() {
+		if(details == null) {
+			return new BookDetailsEntity();
+		}
 		return details;
 	}
 

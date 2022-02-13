@@ -5,6 +5,7 @@ public class BookDetailsDto {
     private final String lang;
 
     public BookDetailsDto(String isbn, String lang) {
+
         this.isbn = isbn;
         this.lang = lang;
     }
