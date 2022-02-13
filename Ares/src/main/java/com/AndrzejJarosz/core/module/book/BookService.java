@@ -4,6 +4,7 @@ import com.AndrzejJarosz.core.module.book.dto.BookDto;
 import com.AndrzejJarosz.core.module.book.dto.BookForm;
 import com.AndrzejJarosz.core.module.book.entity.BookDetailsEntity;
 import com.AndrzejJarosz.core.module.book.entity.BookEntity;
+import com.AndrzejJarosz.core.module.book.mapper.BookDetailsMapper;
 import com.AndrzejJarosz.core.module.book.mapper.BookMapper;
 import com.AndrzejJarosz.core.module.book.repository.BooksDetailsRepository;
 import com.AndrzejJarosz.core.module.book.repository.BooksRepository;
@@ -32,15 +33,14 @@ public class BookService {
     }
 
     public BookDto create(BookForm form) {
-
-        BookDetailsEntity details = new BookDetailsEntity()
-                .setIsbn(form.getIsbn())
-                .setLang(form.getLang());
-
         BookEntity entity = new BookEntity()
                 .setAuthor(form.getAuthor())
                 .setTitle(form.getTitle())
-                .setDetails(detailsRepository.saveAndFlush(details));
+                .setDetails(
+                        detailsRepository.saveAndFlush(
+                            BookDetailsMapper.map(form)
+                        )
+                );
         return BookMapper.map(
                 repository.saveAndFlush(entity)
         );
