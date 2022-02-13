@@ -1,7 +1,12 @@
 package com.AndrzejJarosz.module.book;
 
+import javax.validation.constraints.NotNull;
+
 public class BookForm {
+
+	@NotNull(message = "author is required")
 	private String author;
+	@NotNull(message = "title is required")
 	private String title;
 
 	public String getAuthor() {

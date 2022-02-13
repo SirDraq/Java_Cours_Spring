@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -32,7 +33,7 @@ public class BookRestController {
 	}
 
 	@PostMapping("/api/book")
-	public BookEntity newBooks(@RequestBody BookForm form) {
+	public BookEntity newBooks(@RequestBody @Valid BookForm form) {
 		BookEntity entity = new BookEntity()
 				.setAuthor(form.getAuthor())
 				.setTitle(form.getTitle());
