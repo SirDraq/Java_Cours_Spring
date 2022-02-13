@@ -1,6 +1,6 @@
-package com.AndrzejJarosz.module.book.repository;
+package com.AndrzejJarosz.core.module.book.repository;
 
-import com.AndrzejJarosz.module.book.entity.BookEntity;
+import com.AndrzejJarosz.core.module.book.entity.BookEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

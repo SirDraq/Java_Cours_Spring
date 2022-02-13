@@ -1,4 +1,4 @@
-package com.AndrzejJarosz.module.book.dto;
+package com.AndrzejJarosz.core.module.book.dto;
 
 public class BookDetailsDto {
     private final String isbn;

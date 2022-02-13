@@ -1,4 +1,4 @@
-package com.AndrzejJarosz.module.book.entity;
+package com.AndrzejJarosz.core.module.book.entity;
 
 import javax.persistence.*;
 

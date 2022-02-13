@@ -1,6 +1,4 @@
-package com.AndrzejJarosz.module.book.dto;
-
-import com.AndrzejJarosz.module.book.dto.BookDetailsDto;
+package com.AndrzejJarosz.core.module.book.dto;
 
 import java.util.Set;
 

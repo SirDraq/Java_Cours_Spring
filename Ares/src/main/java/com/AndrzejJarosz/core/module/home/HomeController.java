@@ -1,4 +1,4 @@
-package com.AndrzejJarosz.module.home;
+package com.AndrzejJarosz.core.module.home;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

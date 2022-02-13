@@ -1,10 +1,10 @@
-package com.AndrzejJarosz.module.book;
+package com.AndrzejJarosz.core.module.book;
 
-import com.AndrzejJarosz.module.book.dto.BookDto;
-import com.AndrzejJarosz.module.book.dto.BookForm;
-import com.AndrzejJarosz.module.book.entity.BookEntity;
-import com.AndrzejJarosz.module.book.mapper.BookMapper;
-import com.AndrzejJarosz.module.book.repository.BooksRepository;
+import com.AndrzejJarosz.core.module.book.dto.BookDto;
+import com.AndrzejJarosz.core.module.book.dto.BookForm;
+import com.AndrzejJarosz.core.module.book.entity.BookEntity;
+import com.AndrzejJarosz.core.module.book.mapper.BookMapper;
+import com.AndrzejJarosz.core.module.book.repository.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
