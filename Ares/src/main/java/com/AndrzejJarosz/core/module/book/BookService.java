@@ -2,8 +2,10 @@ package com.AndrzejJarosz.core.module.book;
 
 import com.AndrzejJarosz.core.module.book.dto.BookDto;
 import com.AndrzejJarosz.core.module.book.dto.BookForm;
+import com.AndrzejJarosz.core.module.book.entity.BookDetailsEntity;
 import com.AndrzejJarosz.core.module.book.entity.BookEntity;
 import com.AndrzejJarosz.core.module.book.mapper.BookMapper;
+import com.AndrzejJarosz.core.module.book.repository.BooksDetailsRepository;
 import com.AndrzejJarosz.core.module.book.repository.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,8 @@ public class BookService {
 
     @Autowired
     private BooksRepository repository;
+    @Autowired
+    private BooksDetailsRepository detailsRepository;
 
     public List<BookDto> all() {
         return BookMapper.map(
@@ -28,9 +32,15 @@ public class BookService {
     }
 
     public BookDto create(BookForm form) {
+
+        BookDetailsEntity details = new BookDetailsEntity()
+                .setIsbn(form.getIsbn())
+                .setLang(form.getLang());
+
         BookEntity entity = new BookEntity()
                 .setAuthor(form.getAuthor())
-                .setTitle(form.getTitle());
+                .setTitle(form.getTitle())
+                .setDetails(detailsRepository.saveAndFlush(details));
         return BookMapper.map(
                 repository.saveAndFlush(entity)
         );
