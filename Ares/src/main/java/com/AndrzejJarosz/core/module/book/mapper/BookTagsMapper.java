@@ -1,8 +1,6 @@
 package com.AndrzejJarosz.core.module.book.mapper;
 
-import com.AndrzejJarosz.core.module.book.entity.BookEntity;
 import com.AndrzejJarosz.core.module.book.entity.BookTagEntity;
-
 import java.util.Set;
 import java.util.stream.Collectors;
 
