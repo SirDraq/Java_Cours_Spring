@@ -1,61 +1,35 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<!-- header.html:START-->
 <section th:replace="/blog/commons/head.html :: head"></section>
-<!-- header.html:END-->
     <body>
         <div class="container">
-            <!-- header.html:START-->
             <section th:replace="/blog/commons/header.html :: header"></section>
-            <!-- header.html:END -->
-            <!-- menu.html:START-->
             <section th:replace="/blog/commons/menu.html :: menu"></section>
-            <!-- menu.html:END-->
-            <!-- banner.html:START-->
             <section th:replace="/blog/commons/banner.html :: banner"></section>
-            <!-- banner.html:END-->
             <div class="row mb-2">
                 <div class="col-md-6">
-                    <!-- post-widget.html:START-->
                     <section th:replace="/blog/commons/post-widget.html :: widget"></section>
-                    <!-- post-widget.html:END-->
                 </div>
                 <div class="col-md-6">
-                    <!-- post-widget.html:START-->
                     <section th:replace="/blog/commons/post-widget.html :: widget"></section>
-                    <!-- post-widget.html:END-->
                 </div>
             </div>
         </div>
         <main role="main" class="container">
             <div class="row">
                 <div class="col-md-8 blog-main">
-                    <!-- post.html:START -->
                     <section th:replace="/blog/commons/post.html :: post"></section>
-                    <!-- post.html:END -->
-                    <!-- post.html:START -->
                     <section th:replace="/blog/commons/post.html :: post"></section>
-                    <!-- post.html:END -->
-                    <!-- post.html:START -->
                     <section th:replace="/blog/commons/post.html :: post"></section>
-                    <!-- post.html:END -->
                 </div>
                 <aside class="col-md-4 blog-sidebar">
-                    <!-- about.html:START -->
                     <section th:replace="/blog/commons/about.html :: about"></section>
-                    <!-- about.html:START -->
-                    <!-- archives.html:START -->
                     <section th:replace="/blog/commons/archives.html :: archives"></section>
-                    <!-- archives.html:END -->
-                    <!-- elsewhere.html:START -->
                     <section th:replace="/blog/commons/elsewhere.html :: elsewhere"></section>
-                    <!-- elsewhere.html:END -->
                 </aside>
             </div>
         </main>
-        <!-- footer.html:START -->
         <section th:replace="/blog/commons/footer.html :: footer"></section>
-        <!-- footer.html:START -->
     </body>
 </html>
 
