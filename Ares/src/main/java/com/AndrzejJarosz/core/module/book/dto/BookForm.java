@@ -4,6 +4,7 @@ import com.AndrzejJarosz.core.module.book.entity.BookDetailsEntity;
 import com.AndrzejJarosz.core.module.book.entity.BookTagEntity;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.Set;
 
 public class BookForm {
@@ -14,8 +15,18 @@ public class BookForm {
 	private String title;
 	private String isbn;
 	private String lang;
+	private List<String> tags;
 
 	public BookForm() {
+	}
+
+	public List<String> getTags() {
+		return tags;
+	}
+
+	public BookForm setTags(List<String> tags) {
+		this.tags = tags;
+		return this;
 	}
 
 	public String getIsbn() {
