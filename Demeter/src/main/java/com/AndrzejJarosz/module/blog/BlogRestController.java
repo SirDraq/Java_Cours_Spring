@@ -1,23 +1,30 @@
 package com.AndrzejJarosz.module.blog;
 
+import com.AndrzejJarosz.module.blog.menu.MenuDto;
 import com.AndrzejJarosz.module.blog.menu.MenuService;
+import com.AndrzejJarosz.module.blog.post.PostDto;
 import com.AndrzejJarosz.module.blog.post.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-public class BlogController {
+import java.util.List;
+
+@RestController
+public class BlogRestController {
     @Autowired
     private MenuService menuService;
     @Autowired
     private PostService postService;
 
-    @GetMapping("/blog")
-    public String getBlog(Model model){
-        model.addAttribute("menuItems" , menuService.getMenu());
-        model.addAttribute("posts",postService.getPosts());
-        return "blog/index.html";
+    @GetMapping("/api/blog/menu")
+    public List<MenuDto> getMenus(){
+        return menuService.getMenu();
+    }
+    @GetMapping("/api/blog/post")
+    public List<PostDto> getPosts(){
+        return postService.getPosts();
     }
 }

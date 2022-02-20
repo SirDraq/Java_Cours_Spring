@@ -4,7 +4,7 @@
     <body>
         <div class="container">
             <section th:replace="/blog/commons/header.html :: header"></section>
-            <section th:replace="/blog/commons/menu.html :: menu"></section>
+            <section th:replace="/blog/commons/menu.html :: menu(items=${menuItems})"></section>
             <section th:replace="/blog/commons/banner.html :: banner"></section>
             <div class="row mb-2">
                 <div class="col-md-6">
@@ -18,9 +18,10 @@
         <main role="main" class="container">
             <div class="row">
                 <div class="col-md-8 blog-main">
-                    <section th:replace="/blog/commons/post.html :: post"></section>
-                    <section th:replace="/blog/commons/post.html :: post"></section>
-                    <section th:replace="/blog/commons/post.html :: post"></section>
+                    <section th:each="post : ${posts}" >
+                        <section th:replace="/blog/commons/post.html :: post(post = ${post})"></section>
+                    </section>
+
                 </div>
                 <aside class="col-md-4 blog-sidebar">
                     <section th:replace="/blog/commons/about.html :: about"></section>

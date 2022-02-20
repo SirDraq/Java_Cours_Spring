@@ -1,0 +1,36 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Config</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link media="all" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link media="all" rel="stylesheet" href="/main.css">
+</head>
+
+<body>
+
+<main role="main">
+    <div class="container">
+        <section th:class="${config.theme}">
+            <div class="row">
+                <div class="col-4">
+                    <img th:if="${config.theme == 'WHITE'}" width="100%" src="robert_downey_jr_white.png"/>
+                    <img th:if="${config.theme == 'BLACK'}" width="100%" src="robert_downey_jr_black.png"/>
+                </div>
+                <div class="col-8">
+                    <h1>Config</h1>
+                    <p>Domain: <span th:text="${config.domain}"></span></p>
+                    <p>Email: <span th:text="${config.email}"></span></p>
+                    <p>User: <span th:text="${config.user}"></span></p>
+                    <p>Theme: <span th:text="${config.theme}"></span></p>
+                    <p>Location: <span th:text="${location}"></span></p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+</body>
+</html>
