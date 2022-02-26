@@ -21,7 +21,7 @@
 </form>
 <ul>
   <li th:each="file : ${files}">
-    <a th:href="${'#' + file.uuid}" th:text="${file.fileName}" />
+    <a target="_blank" th:href="${'/media/' + file.uuid + '.jpg'}" th:text="${file.fileName}" />
   </li>
 </ul>
 

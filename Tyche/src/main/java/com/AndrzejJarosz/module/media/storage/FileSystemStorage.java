@@ -29,6 +29,12 @@ public class FileSystemStorage {
     @Value("${mediaRootLocation}")
     private String path;
 
+    public String getFileFullPath(String uuid){
+        MediaEntity media = mediaRepository.findOneByUuid(uuid);
+        return String.format("%s/%s", path, media.getFileName());
+
+    }
+
     public void store(MultipartFile file){
         LOGGER.info("File {} uploading", file.getOriginalFilename());
         try {

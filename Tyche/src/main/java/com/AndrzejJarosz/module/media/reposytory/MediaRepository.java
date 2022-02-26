@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MediaRepository
-        extends JpaRepository<MediaEntity, Long>,
-        JpaSpecificationExecutor<MediaEntity> {
+public interface MediaRepository extends JpaRepository<MediaEntity, Long>, JpaSpecificationExecutor<MediaEntity> {
+    public MediaEntity findOneByUuid(String uuid);
 }
